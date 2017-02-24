@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ProjectControl", "http://localhost/ProjectControl", "{928C7002-64C3-43EA-A078-D3DBFB3A785C}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "false"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
+		ProjectReferences = "{7a787b4f-3677-4c15-9412-92aeb0a1ca22}|PX.Objects.PC.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/ProjectControl"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\Program Files (x86)\Acumatica ERP\ProjectControl\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ProjectControl\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/ProjectControl"
+		Release.AspNetCompiler.PhysicalPath = "..\..\Program Files (x86)\Acumatica ERP\ProjectControl\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ProjectControl\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\Program Files (x86)\Acumatica ERP\ProjectControl\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Objects.PC", "PX.Objects.PC\PX.Objects.PC.csproj", "{7A787B4F-3677-4C15-9412-92AEB0A1CA22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{928C7002-64C3-43EA-A078-D3DBFB3A785C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{928C7002-64C3-43EA-A078-D3DBFB3A785C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{928C7002-64C3-43EA-A078-D3DBFB3A785C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{7A787B4F-3677-4C15-9412-92AEB0A1CA22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A787B4F-3677-4C15-9412-92AEB0A1CA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A787B4F-3677-4C15-9412-92AEB0A1CA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A787B4F-3677-4C15-9412-92AEB0A1CA22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
