@@ -52,6 +52,8 @@
     <Compile Include="DAC\PCTaskType.cs" />
     <Compile Include="DAC\PCResource.cs" />
     <Compile Include="DAC\PCTaskTypeResource.cs" />
+    <Compile Include="Descriptor\Attribute.cs" />
+    <Compile Include="PCResourceMaint.cs" />
     <Compile Include="PCTaskTypeMaint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

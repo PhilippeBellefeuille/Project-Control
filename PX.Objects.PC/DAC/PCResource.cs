@@ -1,4 +1,6 @@
 ﻿using PX.Data;
+using PX.Data.EP;
+using PX.Objects.EP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,80 +9,26 @@ using System.Threading.Tasks;
 
 namespace PX.Objects.PC
 {
-    public class PCResource : IBqlTable
+    [Serializable]
+    [PXTable(typeof(CR.BAccount.bAccountID))]
+    public class PCResource : EPEmployee
     {
         #region BAccountID
-        public class bAccountID : IBqlField { }
-
-        [PXDBInt(IsKey = true)]
-        [PXUIField(DisplayName = "Resource ID")]
-        [PXSelector(typeof(PCResource.bAccountID))]
-        public int? BAccountID { get; set; }
+        public new class bAccountID : IBqlField { }
         #endregion
 
-        #region MondayTimeAvailable
-        public class mondayTimeAvailable : IBqlField { }
+        #region AcctCD
+        public abstract new class acctCD : IBqlField { }
 
-        [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = "Monday Time Available")]
-        public int? MondayTimeAvailable { get; set; }
-        #endregion
-        
-        #region TuesdayTimeAvailable
-        public class tuesdayTimeAvailable : IBqlField { }
-
-        [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = "Tuesday Time Available")]
-        public int? TuesdayTimeAvailable { get; set; }
+        [PXSelector(typeof(PCResourceR.acctCD), ValidateValue = true)]
+        [PXDBString(30, IsUnicode = true, IsKey = true)]
+        [PXDefault]
+        [PXUIField(DisplayName = "Resource ID", Visibility = PXUIVisibility.SelectorVisible)]
+        [PXFieldDescription]
+        public override String AcctCD { get; set; }
         #endregion
 
-        #region WednesdayTimeAvailable
-        public class wednesdayTimeAvailable : IBqlField { }
 
-        [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = "Wednesday Time Available")]
-        public int? WednesdayTimeAvailable { get; set; }
-        #endregion
-
-        #region ThursdayTimeAvailable
-        public class thursdayTimeAvailable : IBqlField { }
-
-        [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = "Thursday Time Available")]
-        public int? ThursdayTimeAvailable { get; set; }
-        #endregion
-        
-        #region FridayTimeAvailable
-        public class fridayTimeAvailable : IBqlField { }
-
-        [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = "Friday Time Available")]
-        public int? FridayTimeAvailable { get; set; }
-        #endregion
-
-        #region SaturdayTimeAvailable
-        public class saturdayTimeAvailable : IBqlField { }
-
-        [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = "Saturday Time Available")]
-        public int? SaturdayTimeAvailable { get; set; }
-        #endregion
-        
-        #region SundayTimeAvailable
-        public class sundayTimeAvailable : IBqlField { }
-
-        [PXDBInt()]
-        [PXDefault(0)]
-        [PXUIField(DisplayName = "Sunday Time Available")]
-        public int? SundayTimeAvailable { get; set; }
-        #endregion
-        
         #region ExpertiseLevel
         public class expertiseLevel : IBqlField { }
 
@@ -92,57 +40,146 @@ namespace PX.Objects.PC
 
         #endregion
 
-        #region System Fields
+        #region Assignment Calendar
 
-        #region Tstamp
-        public class tstamp : IBqlField { }
+        #region SunAssignableDay
+        public abstract class sunAssignableDay : PX.Data.IBqlField { }
 
-        [PXDBTimestamp]
-        public byte[] Tstamp { get; set; }
+        [PXDBBool()]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = "Sunday")]
+        public virtual Boolean? SunAssignableDay { get; set; }
         #endregion
 
-        #region CreatedByID
-        public class createdByID : IBqlField { }
+        #region SunAssignableTime
+        public abstract class sunAssignableTime : PX.Data.IBqlField { }
 
-        [PXDBCreatedByID]
-        public Guid? CreatedByID { get; set; }
+        [PXDBInt]
+        [PXDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [PCAssignableTime(typeof(sunAssignableDay))]
+        [PXUIField(DisplayName = "Assignable Time")]
+        public virtual int? SunAssignableTime { get; set; }
         #endregion
 
-        #region CreatedByScreenID
-        public class createdByScreenID : IBqlField { }
+        #region MonAssignableDay
+        public abstract class monAssignableDay : PX.Data.IBqlField { }
 
-        [PXDBCreatedByScreenID]
-        public string CreatedByScreenID { get; set; }
+        [PXDBBool()]
+        [PXDefault(true)]
+        [PXUIField(DisplayName = "Monday")]
+        public virtual Boolean? MonAssignableDay { get; set; }
         #endregion
 
-        #region CreatedDateTime
-        public class createdDateTime : IBqlField { }
+        #region MonAssignableTime
+        public abstract class monAssignableTime : PX.Data.IBqlField { }
 
-        [PXDBCreatedDateTime]
-        public DateTime? CreatedDateTime { get; set; }
+        [PXDBInt]
+        [PXDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [PCAssignableTime(typeof(monAssignableDay))]
+        [PXUIField(DisplayName = "Assignable Time")]
+        public virtual int? MonAssignableTime { get; set; }
         #endregion
 
-        #region LastModifiedByID
-        public class lastModifiedByID : IBqlField { }
+        #region TueAssignableDay
+        public abstract class tueAssignableDay : PX.Data.IBqlField { }
 
-        [PXDBLastModifiedByID]
-        public Guid? LastModifiedByID { get; set; }
+        [PXDBBool()]
+        [PXDefault(true)]
+        [PXUIField(DisplayName = "Tuesday")]
+        public virtual Boolean? TueAssignableDay { get; set; }
         #endregion
 
-        #region LastModifiedByScreenID
-        public class lastModifiedByScreenID : IBqlField { }
+        #region TueAssignableTime
+        public abstract class tueAssignableTime : PX.Data.IBqlField { }
 
-        [PXDBLastModifiedByScreenID]
-        public string LastModifiedByScreenID { get; set; }
+        [PXDBInt]
+        [PXDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [PCAssignableTime(typeof(tueAssignableDay))]
+        [PXUIField(DisplayName = "Assignable Time")]
+        public virtual int? TueAssignableTime { get; set; }
         #endregion
 
-        #region LastModifiedDateTime
-        public class lastModifiedDateTime : IBqlField { }
+        #region WedAssignableDay
+        public abstract class wedAssignableDay : PX.Data.IBqlField { }
 
-        [PXDBLastModifiedDateTime]
-        public DateTime? LastModifiedDateTime { get; set; }
+        [PXDBBool()]
+        [PXDefault(true)]
+        [PXUIField(DisplayName = "Wednesday")]
+        public virtual Boolean? WedAssignableDay { get; set; }
+        #endregion
+
+        #region WedAssignableTime
+        public abstract class wedAssignableTime : PX.Data.IBqlField { }
+
+        [PXDBInt]
+        [PXDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [PCAssignableTime(typeof(wedAssignableDay))]
+        [PXUIField(DisplayName = "Assignable Time")]
+        public virtual int? WedAssignableTime { get; set; }
+        #endregion
+
+        #region ThuAssignableDay
+        public abstract class thuAssignableDay : PX.Data.IBqlField { }
+
+        [PXDBBool()]
+        [PXDefault(true)]
+        [PXUIField(DisplayName = "Thursday")]
+        public virtual Boolean? ThuAssignableDay { get; set; }
+        #endregion
+
+        #region ThuAssignableTime
+        public abstract class thuAssignableTime : PX.Data.IBqlField { }
+
+        [PXDBInt]
+        [PXDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [PCAssignableTime(typeof(thuAssignableDay))]
+        [PXUIField(DisplayName = "Assignable Time")]
+        public virtual int? ThuAssignableTime { get; set; }
+        #endregion
+
+        #region FriAssignableDay
+        public abstract class friAssignableDay : PX.Data.IBqlField { }
+
+        [PXDBBool()]
+        [PXDefault(true)]
+        [PXUIField(DisplayName = "Friday")]
+        public virtual Boolean? FriAssignableDay { get; set; }
+        #endregion
+
+        #region FriAssignableTime
+        public abstract class friAssignableTime : PX.Data.IBqlField { }
+
+        [PXDBInt]
+        [PXDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [PCAssignableTime(typeof(friAssignableDay))]
+        [PXUIField(DisplayName = "Assignable Time")]
+        public virtual int? FriAssignableTime { get; set; }
+        #endregion
+
+        #region SatAssignableDay
+        public abstract class satAssignableDay : PX.Data.IBqlField { }
+
+        [PXDBBool()]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = "Saturday")]
+        public virtual Boolean? SatAssignableDay { get; set; }
+        #endregion
+
+        #region SatAssignableTime
+        public abstract class satAssignableTime : PX.Data.IBqlField { }
+
+        [PXDBInt]
+        [PXDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [PCAssignableTime(typeof(satAssignableDay))]
+        [PXUIField(DisplayName = "Assignable Time")]
+        public virtual int? SatAssignableTime { get; set; }
         #endregion
 
         #endregion
+    }
+
+    public class PCResourceR : PCResource
+    {
+        public abstract new class acctCD : IBqlField { }
     }
 }
