@@ -250,3 +250,11 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Acumatica Site
+
+Site/*
+!Site/Pages/
+
+Site/Pages/*
+!Site/Pages/PC/
