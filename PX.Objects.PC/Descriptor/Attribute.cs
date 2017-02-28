@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PX.Data;
+using PX.Objects.Common;
 
 namespace PX.Objects.PC
 {
@@ -41,5 +42,76 @@ namespace PX.Objects.PC
                 sender.SetValue(e.Row, this.FieldOrdinal, null);
             }
         }
+    }
+
+    public class PCTaskStatus : ILabelProvider
+    {
+        private static readonly IEnumerable<ValueLabelPair> _valueLabelPairs = new ValueLabelList
+        {
+            { Hold, Messages.Hold },
+            { Open, Messages.Open },
+            { PendingAssignation, Messages.PendingAssignation },
+            { InProgress, Messages.InProgress },
+            { Completed, Messages.Completed },
+        };
+
+        public static readonly string[] Values =
+        {
+            Hold,
+            Open,
+            PendingAssignation,
+            InProgress,
+            Completed
+        };
+
+        public static readonly string[] Labels =
+        {
+
+            Messages.Hold,
+            Messages.Open,
+            Messages.PendingAssignation,
+            Messages.InProgress,
+            Messages.Completed
+        };
+
+        public IEnumerable<ValueLabelPair> ValueLabelPairs => _valueLabelPairs;
+
+        public class ListAttribute : LabelListAttribute
+        {
+            public ListAttribute() : base(_valueLabelPairs)
+            { }
+        }
+
+        public const string Hold = "H";
+        public const string Open = "N";
+        public const string PendingAssignation = "A";
+        public const string InProgress = "P";
+        public const string Completed = "C";
+
+        public class hold : Constant<string>
+        {
+            public hold() : base(Hold) {; }
+        }
+        public class open : Constant<string>
+        {
+            public open() : base(Open) {; }
+        }
+
+        public class pendingAssignation : Constant<string>
+        {
+            public pendingAssignation() : base(PendingAssignation) {; }
+        }
+
+        public class inProgress : Constant<string>
+        {
+            public inProgress() : base(InProgress) {; }
+        }
+
+        public class completed : Constant<string>
+        {
+            public completed() : base(Completed) {; }
+        }
+
+
     }
 }

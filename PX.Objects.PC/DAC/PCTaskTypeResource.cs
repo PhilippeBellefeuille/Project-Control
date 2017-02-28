@@ -26,7 +26,7 @@ namespace PX.Objects.PC
 
         [PXDBInt(IsKey = true)]
         [PXUIField(DisplayName = "Resource ID")]
-        [PXSelector(typeof(PCResource.bAccountID))]
+        [PXSelector(typeof(PCResource.bAccountID), SubstituteKey = typeof(PCResource.acctCD), DescriptionField = typeof(PCResource.acctName))]
         public int? BAccountID { get; set; }
         #endregion
 
