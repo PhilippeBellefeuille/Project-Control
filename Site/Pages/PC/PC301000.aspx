@@ -1,6 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/FormTab.master" AutoEventWireup="true"
     ValidateRequest="false" CodeFile="PC301000.aspx.cs" Inherits="Page_PC301000" Title="Untitled Page" %>
 <%@ MasterType VirtualPath="~/MasterPages/FormTab.master" %>
+<%@ Register Assembly="PX.Web.Controls.PC" Namespace="PX.Web.Controls.PC" TagPrefix="pxpc" %>
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" runat="Server">
 	<px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" PrimaryView="Document" TypeName="PX.Objects.PC.PCTaskMaint">
@@ -28,17 +29,10 @@
             <px:PXTimeSpan ID="tsEstimate" runat="server" DataField="Estimate" InputMask="hh:mm" />
             <px:PXSegmentMask ID="edEstimatorID" runat="server" DataField="EstimatorID">
             </px:PXSegmentMask>
+
 		</Template>
 	</px:PXFormView>
 </asp:Content>
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" runat="Server">
-	<px:PXTab ID="tab" runat="server" Width="100%" Height="150px" DataSourceID="ds">
-		<Items>
-			<px:PXTabItem Text="Tab item 1">
-			</px:PXTabItem>
-			<px:PXTabItem Text="Tab item 2">
-			</px:PXTabItem>
-		</Items>
-		<AutoSize Container="Window" Enabled="True" MinHeight="150" />
-	</px:PXTab>
+    <pxpc:PXGantt ID="ganttControl" runat="server"></pxpc:PXGantt>
 </asp:Content>

@@ -7,25 +7,27 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ProjectControl", "http://lo
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "false"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
-		ProjectReferences = "{7a787b4f-3677-4c15-9412-92aeb0a1ca22}|PX.Objects.PC.dll;"
+		ProjectReferences = "{7a787b4f-3677-4c15-9412-92aeb0a1ca22}|PX.Objects.PC.dll;{6bd8ebcc-4058-436f-bfad-17c9412470e5}|PX.Web.Controls.PC.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/ProjectControl"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\Program Files (x86)\Acumatica ERP\ProjectControl\"
+		Debug.AspNetCompiler.PhysicalPath = "Site\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ProjectControl\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/ProjectControl"
-		Release.AspNetCompiler.PhysicalPath = "..\..\Program Files (x86)\Acumatica ERP\ProjectControl\"
+		Release.AspNetCompiler.PhysicalPath = "Site\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ProjectControl\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\..\Program Files (x86)\Acumatica ERP\ProjectControl\"
+		SlnRelativePath = "Site\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Objects.PC", "PX.Objects.PC\PX.Objects.PC.csproj", "{7A787B4F-3677-4C15-9412-92AEB0A1CA22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Web.Controls.PC", "PX.Web.Controls.PC\PX.Web.Controls.PC.csproj", "{6BD8EBCC-4058-436F-BFAD-17C9412470E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,10 @@ Global
 		{7A787B4F-3677-4C15-9412-92AEB0A1CA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A787B4F-3677-4C15-9412-92AEB0A1CA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A787B4F-3677-4C15-9412-92AEB0A1CA22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD8EBCC-4058-436F-BFAD-17C9412470E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD8EBCC-4058-436F-BFAD-17C9412470E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD8EBCC-4058-436F-BFAD-17C9412470E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD8EBCC-4058-436F-BFAD-17C9412470E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
