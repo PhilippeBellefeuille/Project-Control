@@ -10,7 +10,7 @@ using System.Web.UI.HtmlControls;
 
 namespace PX.Web.Controls.PC
 {
-    public class PXGantt : WebControl, IPXScriptControl
+    public class PXGantt : WebControl, IPXScriptControl, IAutoSizedControl
     {
         #region Constructors
 
@@ -145,6 +145,26 @@ namespace PX.Web.Controls.PC
             get
             {
                 return HtmlTextWriterTag.Div;
+            }
+        }
+
+        private PXAutoSizeInfo autoSize;
+    
+        /// <summary>
+		/// Gets the object that allows you to set the control auto-size mode properties.
+		/// </summary>
+		[DefaultValue((string)null), ScriptBrowsable]
+        [PersistenceMode(PersistenceMode.InnerProperty)]
+        [Category(PXCategory.BaseProp), Description("The properties of the auto-size mode of the control.")]
+        public PXAutoSizeInfo AutoSize
+        {
+            get
+            {
+                if (this.autoSize == null)
+                {
+                    this.autoSize = new PXAutoSizeInfo();
+                }
+                return this.autoSize;
             }
         }
 

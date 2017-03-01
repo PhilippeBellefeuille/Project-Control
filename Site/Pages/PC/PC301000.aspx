@@ -34,5 +34,7 @@
 	</px:PXFormView>
 </asp:Content>
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" runat="Server">
-    <pxpc:PXGantt ID="ganttControl" runat="server"></pxpc:PXGantt>
+    <pxpc:PXGantt ID="ganttControl" runat="server">
+        <AutoSize Enabled="True" MinHeight="200" Container="Window" />
+    </pxpc:PXGantt>
 </asp:Content>
