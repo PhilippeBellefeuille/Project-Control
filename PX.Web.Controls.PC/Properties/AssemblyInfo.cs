@@ -5,6 +5,7 @@ using System.Web.UI;
 
 // define prefix for Web controls
 [assembly: TagPrefix("PX.Web.Controls.PC", "pxpc")]
+[assembly: WebResource("PX.Web.Controls.PC.Content.dhtmlxgantt.css", "text/css")]
 [assembly: WebResource("PX.Web.Controls.PC.Scripts.px_gantt.js", "application/x-javascript")]
 [assembly: WebResource("PX.Web.Controls.PC.Scripts.dhtmlxgantt.js", "application/x-javascript")]
 

@@ -103,7 +103,7 @@ namespace PX.Web.Controls.PC
         protected override void OnPreRender(EventArgs e)
         {
             // register CSS-styles
-            //this.StyleManager.Register();
+            this.RegisterCSS("dhtmlxgantt", "PX.Web.Controls.PC.Content.dhtmlxgantt.css");
 
             // register embeded java script and initialize script blocks
             if (this.EnableClientScript)
@@ -112,6 +112,29 @@ namespace PX.Web.Controls.PC
                 JSManager.Register(this);
             }
             base.OnPreRender(e);
+        }
+
+        protected virtual void RegisterCSS(string key, string resourceName)
+        {
+            if (this.Page.Header != null)
+            {
+                if (!this.Page.ClientScript.IsClientScriptBlockRegistered(key))
+                {
+                    var link = new HtmlLink();
+
+                    link.Href = this.Page.ClientScript.GetWebResourceUrl(typeof(PXGantt), resourceName);
+
+                    link.Attributes.Add("rel", "stylesheet");
+                    link.Attributes.Add("type", "text/css");
+
+                    this.Page.Header.Controls.Add(link);
+                    this.Page.ClientScript.RegisterClientScriptBlock(
+                        typeof(Page),
+                        key,
+                        string.Empty
+                    );
+                }
+            }
         }
 
         /// <summary>

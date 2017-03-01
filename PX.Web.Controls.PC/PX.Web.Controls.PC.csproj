@@ -125,6 +125,7 @@
   <ItemGroup>
     <Content Include="Content\dhtmlxgantt\dhtmlxgantt_broadway.css" />
     <Content Include="Content\dhtmlxgantt\dhtmlxgantt_contrast_black.css" />
+    <EmbeddedResource Include="Content\dhtmlxgantt.css" />
     <Content Include="Content\dhtmlxgantt\dhtmlxgantt_contrast_white.css" />
     <Content Include="Content\dhtmlxgantt\dhtmlxgantt_meadow.css" />
     <Content Include="Content\dhtmlxgantt\dhtmlxgantt_skyblue.css" />
